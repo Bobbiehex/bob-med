@@ -7,7 +7,7 @@ import InfoCard from "@/components/dashboard/info-card";
 import TransactionsList from "@/components/dashboard/transactions-list";
 
 export const metadata = constructMetadata({
-  title: "Doctor – Next Template",
+  title: "Doctor – BOB-MED",
   description: "Doctor page for only Doctor management.",
 });
 

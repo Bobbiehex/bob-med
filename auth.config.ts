@@ -17,7 +17,7 @@ export default {
     }),
     Resend({
       apiKey: env.RESEND_API_KEY,
-      from: "Next Template App <onboarding@resend.dev>",
+      from: "BOB-MED App <onboarding@resend.dev>",
     }),
   ],
 } satisfies NextAuthConfig;
