@@ -5,7 +5,7 @@ import { Icons } from "@/components/shared/icons";
 
 export default function HeroLanding() {
   return (
-    <section className="space-y-6 py-12 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-blue-50 dark:from-background dark:to-muted/30">
+    <section className="space-y-6 bg-gradient-to-b from-white to-blue-50 py-12 dark:from-background dark:to-muted/30 sm:py-20 lg:py-24">
       <div className="container flex max-w-screen-md flex-col items-center gap-5 text-center">
         <h1 className="text-balance font-satoshi text-[40px] font-black leading-[1.15] tracking-tight sm:text-5xl md:text-6xl md:leading-[1.15]">
           Manage Your{" "}

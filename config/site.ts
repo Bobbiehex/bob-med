@@ -10,8 +10,8 @@ export const siteConfig: SiteConfig = {
   url: site_url,
   ogImage: `${site_url}/_static/og.jpg`,
   links: {
-    twitter: "https://twitter.com/miickasmt",
-    github: "https://github.com/mickasmt/next-auth-roles-template",
+    twitter: "https://x.com/Bobbiehex",
+    github: "https://github.com/Bobbiehex",
   },
   mailSupport: "support@next-starter.fake",
 };
