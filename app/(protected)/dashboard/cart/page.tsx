@@ -52,8 +52,8 @@ export default function CartPage() {
   )
 
   return (
-    <div className="min-h-screen p-6 bg-background text-foreground">
-      <h1 className="text-2xl font-bold mb-6">Your Cart</h1>
+    <div className="min-h-screen bg-background p-6 text-foreground">
+      <h1 className="mb-6 text-2xl font-bold">Your Cart</h1>
 
       {cartItems.length === 0 ? (
         <p className="text-muted-foreground">Your cart is empty.</p>
@@ -73,7 +73,7 @@ export default function CartPage() {
                   <div className="flex-1">
                     <h3 className="font-medium">{item!.name}</h3>
                     <p className="text-sm text-muted-foreground">₦{item!.price}</p>
-                    <div className="flex items-center gap-2 mt-2">
+                    <div className="mt-2 flex items-center gap-2">
                       <Button
                         variant="outline"
                         size="sm"
@@ -98,7 +98,7 @@ export default function CartPage() {
           </div>
 
           {/* Total + Checkout */}
-          <div className="mt-6 flex justify-between items-center">
+          <div className="mt-6 flex items-center justify-between">
             <h2 className="text-lg font-semibold">Total: ₦{totalPrice}</h2>
             <Button onClick={() => router.push("/dashboard/checkout")}>
               Proceed to Checkout

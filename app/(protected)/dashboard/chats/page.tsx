@@ -79,14 +79,14 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="space-y-6 p-6">
       <h1 className="text-2xl font-bold">Chats</h1>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {staffList.map((staff) => (
-          <Card key={staff.id} className="rounded-2xl shadow-lg hover:shadow-xl transition-all">
+          <Card key={staff.id} className="rounded-2xl shadow-lg transition-all hover:shadow-xl">
             <CardHeader className="flex items-center gap-4">
-              <Avatar className="w-16 h-16">
+              <Avatar className="h-16 w-16">
                 <AvatarImage src={staff.img} alt={staff.name} />
                 <AvatarFallback>{staff.name.charAt(0)}</AvatarFallback>
               </Avatar>
@@ -95,8 +95,8 @@ export default function ChatPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <Button className="w-full flex items-center gap-2" onClick={() => setSelectedStaff(staff)}>
-                <MessageCircle className="w-4 h-4" /> Open Chat
+              <Button className="flex w-full items-center gap-2" onClick={() => setSelectedStaff(staff)}>
+                <MessageCircle className="h-4 w-4" /> Open Chat
               </Button>
             </CardContent>
           </Card>
@@ -104,14 +104,14 @@ export default function ChatPage() {
       </div>
 
       {selectedStaff && (
-        <div className="mt-6 border rounded-lg p-4 max-w-md">
-          <h2 className="font-semibold mb-2">Chat with {selectedStaff.name}</h2>
-          <div className="max-h-60 overflow-y-auto border rounded p-2 mb-2 bg-gray-50">
+        <div className="mt-6 max-w-md rounded-lg border p-4">
+          <h2 className="mb-2 font-semibold">Chat with {selectedStaff.name}</h2>
+          <div className="mb-2 max-h-60 overflow-y-auto rounded border bg-gray-50 p-2">
             {chatHistory[selectedStaff.id]?.length
               ? chatHistory[selectedStaff.id].map((msg, idx) => (
                   <div key={idx} className={`mb-2 ${msg.from === "You" ? "text-right" : "text-left"}`}>
                     <span
-                      className={`inline-block px-3 py-1 rounded-xl ${
+                      className={`inline-block rounded-xl px-3 py-1 ${
                         msg.from === "You" ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"
                       }`}
                     >
@@ -120,7 +120,7 @@ export default function ChatPage() {
                   </div>
                 ))
               : "No messages yet"}
-            {isTyping && <div className="text-right animate-pulse">Typing...</div>}
+            {isTyping && <div className="animate-pulse text-right">Typing...</div>}
           </div>
           <div className="flex gap-2">
             <Input
@@ -130,7 +130,7 @@ export default function ChatPage() {
               onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
             />
             <Button onClick={handleSendMessage}>
-              <Send className="w-4 h-4" />
+              <Send className="h-4 w-4" />
             </Button>
           </div>
         </div>

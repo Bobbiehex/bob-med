@@ -67,14 +67,14 @@ export default function PharmacyPage() {
   const totalItems = Object.values(cart).reduce((acc, item) => acc + item.qty, 0)
 
   return (
-    <div className="min-h-screen p-6 bg-background text-foreground">
+    <div className="min-h-screen bg-background p-6 text-foreground">
       {/* Top bar with title + cart link */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="mb-6 flex items-center justify-between">
         <h1 className="text-2xl font-bold">Pharmacy</h1>
         <Link href="/dashboard/cart" className="relative">
-          <ShoppingCart className="w-6 h-6" />
+          <ShoppingCart className="h-6 w-6" />
           {totalItems > 0 && (
-            <span className="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full px-2 py-0.5">
+            <span className="absolute -right-2 -top-2 rounded-full bg-primary px-2 py-0.5 text-xs text-white">
               {totalItems}
             </span>
           )}
@@ -82,22 +82,22 @@ export default function PharmacyPage() {
       </div>
 
       {/* Drug list */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         {drugs.map(drug => (
           <Card key={drug.id}>
-            <CardContent className="p-4 flex flex-col items-center">
+            <CardContent className="flex flex-col items-center p-4">
               <Image
                 src={drug.image}
                 alt={drug.name}
                 width={120}
                 height={120}
-                className="rounded-md object-cover mb-2"
+                className="mb-2 rounded-md object-cover"
               />
               <h3 className="font-semibold">{drug.name}</h3>
-              <p className="text-muted-foreground mb-2">₦{drug.price}</p>
+              <p className="mb-2 text-muted-foreground">₦{drug.price}</p>
 
               {/* Quantity selector */}
-              <div className="flex items-center gap-2 mb-3">
+              <div className="mb-3 flex items-center gap-2">
                 <Button
                   variant="outline"
                   size="sm"

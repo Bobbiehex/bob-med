@@ -159,15 +159,15 @@ export default function StaffPage() {
   }
 
   return (
-    <div className="p-6 space-y-8">
+    <div className="space-y-8 p-6">
       {/* Doctors */}
       <section>
-        <h2 className="text-xl font-bold mb-4">👨‍⚕️ Doctors</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 className="mb-4 text-xl font-bold">👨‍⚕️ Doctors</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {doctors.map((staff) => (
-            <Card key={staff.id} className="rounded-2xl shadow-lg hover:shadow-xl transition-all">
+            <Card key={staff.id} className="rounded-2xl shadow-lg transition-all hover:shadow-xl">
               <CardHeader className="flex items-center gap-4">
-                <Avatar className="w-16 h-16">
+                <Avatar className="h-16 w-16">
                   <AvatarImage src={staff.img} alt={staff.name} />
                   <AvatarFallback>{staff.name.charAt(0)}</AvatarFallback>
                 </Avatar>
@@ -177,11 +177,11 @@ export default function StaffPage() {
                 </div>
               </CardHeader>
               <CardContent className="flex flex-col gap-2">
-                <Button className="w-full flex items-center gap-2" onClick={() => handleChatOpen(staff)}>
-                  <MessageCircle className="w-4 h-4" /> Chat
+                <Button className="flex w-full items-center gap-2" onClick={() => handleChatOpen(staff)}>
+                  <MessageCircle className="h-4 w-4" /> Chat
                 </Button>
                 <Button
-                  className="w-full flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white"
+                  className="flex w-full items-center gap-2 bg-green-500 text-white hover:bg-green-600"
                   onClick={() => handleBookingOpen(staff)}
                 >
                   📅 Book Now
@@ -194,12 +194,12 @@ export default function StaffPage() {
 
       {/* Nurses */}
       <section>
-        <h2 className="text-xl font-bold mb-4">👩‍⚕️ Nurses</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 className="mb-4 text-xl font-bold">👩‍⚕️ Nurses</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {nurses.map((staff) => (
-            <Card key={staff.id} className="rounded-2xl shadow-lg hover:shadow-xl transition-all">
+            <Card key={staff.id} className="rounded-2xl shadow-lg transition-all hover:shadow-xl">
               <CardHeader className="flex items-center gap-4">
-                <Avatar className="w-16 h-16">
+                <Avatar className="h-16 w-16">
                   <AvatarImage src={staff.img} alt={staff.name} />
                   <AvatarFallback>{staff.name.charAt(0)}</AvatarFallback>
                 </Avatar>
@@ -209,8 +209,8 @@ export default function StaffPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <Button className="w-full flex items-center gap-2" onClick={() => handleChatOpen(staff)}>
-                  <MessageCircle className="w-4 h-4" /> Chat
+                <Button className="flex w-full items-center gap-2" onClick={() => handleChatOpen(staff)}>
+                  <MessageCircle className="h-4 w-4" /> Chat
                 </Button>
               </CardContent>
             </Card>
@@ -220,16 +220,16 @@ export default function StaffPage() {
 
       {/* Chat Modal */}
       <Dialog open={isChatOpen} onOpenChange={setIsChatOpen}>
-        <DialogContent className="sm:max-w-md flex flex-col">
+        <DialogContent className="flex flex-col sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Chat with {selectedStaff?.name}</DialogTitle>
           </DialogHeader>
-          <div className="flex-1 overflow-y-auto max-h-60 border rounded-lg p-3 mb-3 bg-gray-50">
+          <div className="mb-3 max-h-60 flex-1 overflow-y-auto rounded-lg border bg-gray-50 p-3">
             {selectedStaff ? (
               (chatHistory[selectedStaff.id] || []).map((msg, idx) => (
                 <div key={idx} className={`mb-2 ${msg.from === "You" ? "text-right" : "text-left"}`}>
                   <span
-                    className={`inline-block px-3 py-1 rounded-xl ${
+                    className={`inline-block rounded-xl px-3 py-1 ${
                       msg.from === "You" ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"
                     }`}
                   >
@@ -238,11 +238,11 @@ export default function StaffPage() {
                 </div>
               ))
             ) : (
-              <p className="text-sm text-gray-400 italic">No messages yet</p>
+              <p className="text-sm italic text-gray-400">No messages yet</p>
             )}
             {isTyping && (
-              <div className="text-right mb-2">
-                <span className="inline-block px-3 py-1 rounded-xl bg-blue-500 text-white">
+              <div className="mb-2 text-right">
+                <span className="inline-block rounded-xl bg-blue-500 px-3 py-1 text-white">
                   <span className="animate-pulse">|</span>
                 </span>
               </div>
@@ -256,7 +256,7 @@ export default function StaffPage() {
               onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
             />
             <Button onClick={handleSendMessage}>
-              <Send className="w-4 h-4" />
+              <Send className="h-4 w-4" />
             </Button>
           </div>
         </DialogContent>
@@ -264,7 +264,7 @@ export default function StaffPage() {
 
       {/* Booking Modal */}
       <Dialog open={isBookingOpen} onOpenChange={setIsBookingOpen}>
-        <DialogContent className="sm:max-w-md flex flex-col gap-3">
+        <DialogContent className="flex flex-col gap-3 sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Book Appointment with {bookingStaff?.name}</DialogTitle>
           </DialogHeader>
@@ -276,7 +276,7 @@ export default function StaffPage() {
             value={bookingReason}
             onChange={(e) => setBookingReason(e.target.value)}
           />
-          <Button className="bg-green-500 hover:bg-green-600 text-white" onClick={handleConfirmBooking}>
+          <Button className="bg-green-500 text-white hover:bg-green-600" onClick={handleConfirmBooking}>
             Confirm Booking
           </Button>
         </DialogContent>

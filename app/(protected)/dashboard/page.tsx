@@ -66,10 +66,10 @@ export default function Dashboard() {
       </div>
 
       {/* Top Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Today's Patients</p>
+            <p className="text-sm text-muted-foreground">Today&apos;s Patients</p>
             <h2 className="text-2xl font-bold">{stats.patients}</h2>
             <p className="text-xs text-green-600">+2 from yesterday</p>
           </CardContent>
@@ -102,18 +102,18 @@ export default function Dashboard() {
 
       {/* Last Updated */}
       {lastUpdated && (
-        <p className="text-xs text-muted-foreground text-right">
+        <p className="text-right text-xs text-muted-foreground">
           Last Updated: {lastUpdated.toLocaleTimeString()}
         </p>
       )}
 
       {/* AI Insights & Quick Actions */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* AI Insights */}
         <Card className="lg:col-span-2">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Activity className="w-4 h-4 text-primary" />
+              <Activity className="h-4 w-4 text-primary" />
               AI Insights & Recommendations
             </CardTitle>
             <p className="text-xs text-muted-foreground">
@@ -121,9 +121,9 @@ export default function Dashboard() {
             </p>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="border rounded-lg p-3 bg-green-50 border-green-200">
-              <p className="font-medium flex items-center gap-2 text-green-700">
-                <CheckCircle className="w-4 h-4" /> Optimal Schedule Detected
+            <div className="rounded-lg border border-green-200 bg-green-50 p-3">
+              <p className="flex items-center gap-2 font-medium text-green-700">
+                <CheckCircle className="h-4 w-4" /> Optimal Schedule Detected
               </p>
               <p className="text-sm text-muted-foreground">
                 Moving Dr. Johnson’s 2 PM appointment to 3 PM would reduce
@@ -134,9 +134,9 @@ export default function Dashboard() {
               </Button>
             </div>
 
-            <div className="border rounded-lg p-3 bg-blue-50 border-blue-200">
-              <p className="font-medium flex items-center gap-2 text-blue-700">
-                <BarChart className="w-4 h-4" /> Resource Optimization
+            <div className="rounded-lg border border-blue-200 bg-blue-50 p-3">
+              <p className="flex items-center gap-2 font-medium text-blue-700">
+                <BarChart className="h-4 w-4" /> Resource Optimization
               </p>
               <p className="text-sm text-muted-foreground">
                 Room 3 shows 23% higher patient satisfaction when equipped with
@@ -147,9 +147,9 @@ export default function Dashboard() {
               </Button>
             </div>
 
-            <div className="border rounded-lg p-3 bg-orange-50 border-orange-200">
-              <p className="font-medium flex items-center gap-2 text-orange-700">
-                <AlertTriangle className="w-4 h-4" /> Capacity Alert
+            <div className="rounded-lg border border-orange-200 bg-orange-50 p-3">
+              <p className="flex items-center gap-2 font-medium text-orange-700">
+                <AlertTriangle className="h-4 w-4" /> Capacity Alert
               </p>
               <p className="text-sm text-muted-foreground">
                 Tomorrow’s schedule is 87% booked. Consider opening additional
@@ -188,7 +188,7 @@ export default function Dashboard() {
       </div>
 
       {/* Status Sections */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {/* Room Availability */}
         <Card>
           <CardHeader>
@@ -236,10 +236,10 @@ export default function Dashboard() {
             <CardTitle>Equipment Status</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm flex justify-between">
+            <p className="flex justify-between text-sm">
               X-Ray Machines <span className="text-green-600">All Online</span>
             </p>
-            <p className="text-sm flex justify-between">
+            <p className="flex justify-between text-sm">
               Lab Equipment <span className="text-red-600">1 Maintenance</span>
             </p>
           </CardContent>

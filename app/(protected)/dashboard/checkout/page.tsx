@@ -63,9 +63,9 @@ export default function CheckoutPage() {
 
   if (orderPlaced) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-center p-6">
+      <div className="flex min-h-screen items-center justify-center p-6 text-center">
         <Card className="p-8 shadow-md">
-          <h1 className="text-2xl font-bold mb-4">✅ Order Placed Successfully!</h1>
+          <h1 className="mb-4 text-2xl font-bold">✅ Order Placed Successfully!</h1>
           <p className="text-muted-foreground">You’ll be redirected back to the pharmacy page shortly...</p>
         </Card>
       </div>
@@ -73,13 +73,13 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen p-6 bg-background text-foreground">
-      <h1 className="text-2xl font-bold mb-6">Checkout</h1>
+    <div className="min-h-screen bg-background p-6 text-foreground">
+      <h1 className="mb-6 text-2xl font-bold">Checkout</h1>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid gap-8 md:grid-cols-2">
         {/* Order Summary */}
         <div>
-          <h2 className="font-semibold text-lg mb-4">Order Summary</h2>
+          <h2 className="mb-4 text-lg font-semibold">Order Summary</h2>
           <div className="grid gap-4">
             {cartItems.map(item => (
               <Card key={item!.id}>
@@ -102,7 +102,7 @@ export default function CheckoutPage() {
               </Card>
             ))}
           </div>
-          <div className="mt-4 flex justify-between font-semibold text-lg">
+          <div className="mt-4 flex justify-between text-lg font-semibold">
             <span>Total:</span>
             <span>₦{totalPrice}</span>
           </div>
@@ -110,7 +110,7 @@ export default function CheckoutPage() {
 
         {/* Checkout Form */}
         <div>
-          <h2 className="font-semibold text-lg mb-4">Customer Details</h2>
+          <h2 className="mb-4 text-lg font-semibold">Customer Details</h2>
           <form onSubmit={handleCheckout} className="grid gap-4">
             <div>
               <Label htmlFor="name">Full Name</Label>

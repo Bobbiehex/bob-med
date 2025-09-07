@@ -20,7 +20,7 @@ export default function AppointmentsPage() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="space-y-6 p-6">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -38,23 +38,23 @@ export default function AppointmentsPage() {
       </div>
 
       {/* Calendar + Schedule */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="p-4 border rounded-lg bg-white dark:bg-background">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="rounded-lg border bg-white p-4 dark:bg-background">
           <Calendar
             mode="single"
             selected={date}
             onSelect={setDate}
             className="mx-auto"
           />
-          <Button className="w-full mt-4" onClick={() => setOpen(true)}>
+          <Button className="mt-4 w-full" onClick={() => setOpen(true)}>
             + New Appointment
           </Button>
         </div>
 
-        <div className="lg:col-span-2 p-4 border rounded-lg bg-white dark:bg-background flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center rounded-lg border bg-white p-4 dark:bg-background lg:col-span-2">
           {date ? (
             <>
-              <h2 className="text-lg font-semibold mb-2">
+              <h2 className="mb-2 text-lg font-semibold">
                 Schedule for {date.toLocaleDateString()}
               </h2>
               <p className="text-muted-foreground">
@@ -72,7 +72,7 @@ export default function AppointmentsPage() {
 
       {/* Appointment Modal */}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-h-[90vh] max-w-lg overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Create New Appointment</DialogTitle>
           </DialogHeader>
@@ -80,7 +80,7 @@ export default function AppointmentsPage() {
           <div className="space-y-4">
             {/* Patient */}
             <div>
-              <label className="block text-sm font-medium mb-1">Patient</label>
+              <label className="mb-1 block text-sm font-medium">Patient</label>
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder="Select patient" />
@@ -94,18 +94,18 @@ export default function AppointmentsPage() {
 
             {/* Date */}
             <div>
-              <label className="block text-sm font-medium mb-1">Date</label>
+              <label className="mb-1 block text-sm font-medium">Date</label>
               <Input type="date" />
             </div>
 
             {/* Start & End Time */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Start Time</label>
+                <label className="mb-1 block text-sm font-medium">Start Time</label>
                 <Input type="time" />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">End Time</label>
+                <label className="mb-1 block text-sm font-medium">End Time</label>
                 <Input type="time" />
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function AppointmentsPage() {
 
             {/* Doctor */}
             <div>
-              <label className="block text-sm font-medium mb-1">Doctor</label>
+              <label className="mb-1 block text-sm font-medium">Doctor</label>
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder="Select doctor" />
@@ -131,7 +131,7 @@ export default function AppointmentsPage() {
 
             {/* Room */}
             <div>
-              <label className="block text-sm font-medium mb-1">Room</label>
+              <label className="mb-1 block text-sm font-medium">Room</label>
               <Select>
                 <SelectTrigger>
                   <SelectValue placeholder="Select room" />
@@ -145,13 +145,13 @@ export default function AppointmentsPage() {
 
             {/* Reason for Visit */}
             <div>
-              <label className="block text-sm font-medium mb-1">Reason for Visit</label>
+              <label className="mb-1 block text-sm font-medium">Reason for Visit</label>
               <Input placeholder="e.g., Routine checkup, Follow-up" />
             </div>
 
             {/* Notes */}
             <div>
-              <label className="block text-sm font-medium mb-1">Notes</label>
+              <label className="mb-1 block text-sm font-medium">Notes</label>
               <Textarea placeholder="Additional notes..." />
             </div>
           </div>
